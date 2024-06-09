@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import Intro from './components/Intro'
+import Game from './components/Game'
 import './App.css'
 
 function App() {
 
+  const [isGameOn, setIsGameOn] = useState(false)
 
   return (
     <>
-      <h1>hello world</h1>
+      {isGameOn ? <Game /> : <Intro />}
     </>
   )
 }
