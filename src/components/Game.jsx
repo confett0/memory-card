@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import shuffleArray from "./shuffleArray";
+import Card from "./Card.jsx"
 
 export default function Game() {
 
@@ -13,7 +14,19 @@ export default function Game() {
 
     const shuffledCharacters = shuffleArray(charactersData);
 
+    const cardElements = shuffledCharacters.map((char) => (
+        <Card
+          key={char.index}
+          index={char.index}
+          imgUrl={char.image}
+          name={char.nickname}
+          
+        />
+      ));
+
     return (
-        <h1>Game is on!</h1>
+        <div className="game-container">
+        {cardElements}
+        </div>
     )
 }
