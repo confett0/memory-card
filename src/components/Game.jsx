@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import shuffleArray from "./shuffleArray";
 
 export default function Game() {
 
@@ -10,7 +11,7 @@ export default function Game() {
         .then(data => setCharactersData(data))
     }, [])
 
-    console.log(charactersData)
+    const shuffledCharacters = shuffleArray(charactersData);
 
     return (
         <h1>Game is on!</h1>
