@@ -7,6 +7,7 @@ export default function Game() {
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
+  const [difficulty, setDifficulty] = useState("hard")
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
@@ -14,7 +15,17 @@ export default function Game() {
       .then((data) => setCharactersData(data));
   }, []);
 
-  const shuffledCharacters = shuffleArray(charactersData);
+  let totalCards = []
+
+  if (difficulty === "easy") {
+    totalCards = charactersData.slice(0,8)
+  } else if (difficulty === "medium") {
+    totalCards = charactersData.slice(0,16)
+  } else if (difficulty === "hard") {
+    totalCards = charactersData
+  }
+
+  const shuffledCards = shuffleArray(totalCards);
 
   const endGame = () => {
     setCurrentScore(0);
@@ -23,13 +34,12 @@ export default function Game() {
 
   const handleClick = (cardId) => {
     if (!clickedCardIds.includes(cardId)) {
-      if (clickedCardIds.length === 24) {
-        alert("You win");
-      }
       setClickedCardIds((prevIds) => [...prevIds, cardId]);
-      setCurrentScore((prevScore) => prevScore + 1);
-      if (currentScore >= bestScore) {
-        setBestScore(currentScore + 1);
+      const newScore = currentScore + 1;
+      setCurrentScore(newScore);
+      setBestScore((prevBestScore) => Math.max(prevBestScore, newScore));
+      if (newScore === charactersData.length) {
+        alert("You win");
       }
     } else {
       endGame();
@@ -37,7 +47,7 @@ export default function Game() {
     }
   };
 
-  const cardElements = shuffledCharacters.map((char) => (
+  const cardElements = shuffledCards.map((char) => (
     <Card
       key={char.index}
       index={char.index}
