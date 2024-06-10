@@ -15,6 +15,11 @@ export default function Game() {
 
   const shuffledCharacters = shuffleArray(charactersData);
 
+  const endGame = () => {
+    setCurrentScore(0)
+    setClickedCardIds([])
+  }
+
   const handleClick = (cardId) => {
     if (!clickedCardIds.includes(cardId)) {
       if (clickedCardIds.length === 24) {
@@ -24,7 +29,7 @@ export default function Game() {
       setCurrentScore((prevScore) => prevScore + 1);
       
     } else {
-      
+      endGame()
       alert("You lost")
     }
     
