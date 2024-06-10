@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  const [isGameOn, setIsGameOn] = useState(false)
+  const [isGameOn, setIsGameOn] = useState(true)
 
   return (
     <>
