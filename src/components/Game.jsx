@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 
-export default function Game() {
+export default function Game({difficulty}) {
   const [charactersData, setCharactersData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
-  const [difficulty, setDifficulty] = useState("hard")
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
@@ -38,7 +37,8 @@ export default function Game() {
       const newScore = currentScore + 1;
       setCurrentScore(newScore);
       setBestScore((prevBestScore) => Math.max(prevBestScore, newScore));
-      if (newScore === charactersData.length) {
+      if (newScore === totalCards.length) {
+        endGame();
         alert("You win");
       }
     } else {
