@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 
-export default function Game({difficulty}) {
+export default function Game({ difficulty }) {
   const [charactersData, setCharactersData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
@@ -14,14 +14,14 @@ export default function Game({difficulty}) {
       .then((data) => setCharactersData(data));
   }, []);
 
-  let totalCards = []
+  let totalCards = [];
 
   if (difficulty === "easy") {
-    totalCards = charactersData.slice(0,8)
+    totalCards = charactersData.slice(0, 8);
   } else if (difficulty === "medium") {
-    totalCards = charactersData.slice(0,16)
+    totalCards = charactersData.slice(0, 16);
   } else if (difficulty === "hard") {
-    totalCards = charactersData
+    totalCards = charactersData;
   }
 
   const shuffledCards = shuffleArray(totalCards);
@@ -38,6 +38,7 @@ export default function Game({difficulty}) {
       setCurrentScore(newScore);
       setBestScore((prevBestScore) => Math.max(prevBestScore, newScore));
       if (newScore === totalCards.length) {
+        // check for a win
         endGame();
         alert("You win");
       }
@@ -52,7 +53,7 @@ export default function Game({difficulty}) {
       key={char.index}
       index={char.index}
       imgUrl={char.image}
-      name={char.nickname}
+      name={char.fullName}
       handleClick={handleClick}
     />
   ));
