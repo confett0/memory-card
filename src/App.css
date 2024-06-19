@@ -13,11 +13,3 @@
   text-align: center;
 }
 
-.game-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  padding: 2rem;
-}
-

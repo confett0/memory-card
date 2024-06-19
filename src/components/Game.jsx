@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../Game.css"
 import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 
