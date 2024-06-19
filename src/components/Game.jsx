@@ -62,10 +62,10 @@ export default function Game({ difficulty }) {
   ));
 
   return (
-    <>
+    <div className="game-wrap">
       <p>Your score: {currentScore}</p>
       <p>Best score: {bestScore}</p>
       <div className="game-container">{cardElements}</div>
-    </>
+    </div>
   );
 }

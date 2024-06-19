@@ -1,6 +1,8 @@
+import "../Intro.css"
+
 export default function Intro({startGame, chooseLevel}) {
     return (
-        <>
+        <div className="intro-wrap">
         <h1>Memory card</h1>
         <div className="level-wrap">
             <button onClick={() => chooseLevel("easy")}>Easy</button>
@@ -8,6 +10,6 @@ export default function Intro({startGame, chooseLevel}) {
             <button onClick={() => chooseLevel("hard")}>Hard</button>
         </div>
         <button onClick={startGame}>Start game</button>
-        </>
+        </div>
     )
 }

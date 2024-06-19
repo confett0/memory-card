@@ -1,0 +1,10 @@
+.intro-wrap {
+    background: url("/intro-background.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 3rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
