@@ -17,17 +17,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .card {
-  position: relative; 
+  position: relative;
   width: 200px;
   height: 300px;
   perspective: 1000px;
 }
 
 .card-inner {
-  
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
@@ -50,7 +51,6 @@
 
 .card-front,
 .card-back {
-  
   border-radius: 10px;
   position: absolute;
   width: 100%;
@@ -69,7 +69,6 @@
 .card img {
   border-radius: 10px;
   max-height: 100%;
-  
 }
 
 .card-back {
@@ -86,13 +85,12 @@
 
 @keyframes showBackground {
   0% {
-    opacity: 0; 
+    opacity: 0;
   }
   50% {
-    opacity: 1; 
+    opacity: 1;
   }
   100% {
-    opacity: 0; 
+    opacity: 0;
   }
 }
-
