@@ -7,6 +7,7 @@ export default function Game({ difficulty }) {
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
+  const [animationTrigger, setAnimationTrigger] = useState(0); // Used as a counter to force the Card component to re-render
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
@@ -33,6 +34,7 @@ export default function Game({ difficulty }) {
 
   const handleClick = (cardId) => {
     if (!clickedCardIds.includes(cardId)) {
+      setAnimationTrigger((count) => count + 1);
       setClickedCardIds((prevIds) => [...prevIds, cardId]);
       const newScore = currentScore + 1;
       setCurrentScore(newScore);
@@ -50,7 +52,7 @@ export default function Game({ difficulty }) {
 
   const cardElements = shuffledCards.map((char) => (
     <Card
-      key={char.index}
+      key={`${char.index}-${animationTrigger}`}
       index={char.index}
       imgUrl={char.image}
       name={char.fullName}
