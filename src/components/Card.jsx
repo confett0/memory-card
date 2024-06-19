@@ -1,3 +1,5 @@
+import "../Card.css"
+
 export default function Card({ imgUrl, index, handleClick }) {
   return (
     <div className="card" onClick={() => handleClick(index)}>
@@ -6,7 +8,7 @@ export default function Card({ imgUrl, index, handleClick }) {
           <img src={imgUrl} />
         </div>
         <div className="card-back">
-          <img src="src/assets/gryffindor.png" />
+          <img src="/gryffindor.png" />
         </div>
       </div>
     </div>
