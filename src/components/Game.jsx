@@ -58,6 +58,7 @@ export default function Game({ difficulty }) {
       imgUrl={char.image}
       name={char.fullName}
       handleClick={handleClick}
+      house="ravenclaw"
     />
   ));
 
