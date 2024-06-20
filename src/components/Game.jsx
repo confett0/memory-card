@@ -3,7 +3,7 @@ import "../Game.css"
 import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 
-export default function Game({ difficulty }) {
+export default function Game({ difficulty, house }) {
   const [charactersData, setCharactersData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
@@ -58,7 +58,7 @@ export default function Game({ difficulty }) {
       imgUrl={char.image}
       name={char.fullName}
       handleClick={handleClick}
-      house="ravenclaw"
+      house={house}
     />
   ));
 
