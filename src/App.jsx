@@ -8,8 +8,10 @@ function App() {
   const [difficulty, setDifficulty] = useState(null);
   const [house, setHouse] = useState(null);
 
-  const startGame = () => setIsGameOn(true);
-  const chooseLevel = (level) => setDifficulty(level);
+  const startGame = (level) => {
+    setDifficulty(level);
+    setIsGameOn(true);
+  }
   const chooseHouse = (house) => setHouse(house);
 
   return (
@@ -17,7 +19,7 @@ function App() {
       {isGameOn ? (
         <Game difficulty={difficulty} house={house} />
       ) : (
-        <Intro startGame={startGame} chooseLevel={chooseLevel} chooseHouse={chooseHouse} />
+        <Intro startGame={startGame} chooseHouse={chooseHouse} house={house} />
       )}
     </>
   );
