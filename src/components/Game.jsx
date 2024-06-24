@@ -64,8 +64,13 @@ export default function Game({ difficulty, house }) {
 
   return (
     <div className="game-wrap">
-      <p>Your score: {currentScore}</p>
-      <p>Best score: {bestScore}</p>
+      <header>
+        <img className="logo" src="./logo.png"/>
+        <div className="score-wrap">
+          <p>Your score: {currentScore}</p>
+          <p>Best score: {bestScore}</p>
+        </div>
+      </header>
       <div className="game-container">{cardElements}</div>
     </div>
   );

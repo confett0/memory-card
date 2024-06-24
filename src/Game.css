@@ -1,7 +1,19 @@
+header {
+    display: flex;
+    height: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+.logo {
+    width: 15rem;
+}
+
 .game-wrap {
     background: url("/game-background.jpg") no-repeat center center;
     background-size: cover;
-    padding: 3rem;
+    padding: 0 3rem 2rem;
 }
 
 .game-container {
