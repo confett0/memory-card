@@ -13,13 +13,13 @@ button {
     background: none;
     border: none;
     cursor: pointer;
-    -moz-transition: all 2s;
--webkit-transition: all 2s;
-transition: all 2s;
 }
 
 button img {
     width: 7rem;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 button img:hover {
@@ -28,4 +28,4 @@ button img:hover {
     -o-transform: scale(1.4);
     -ms-transform: scale(1.4);
     transform: scale(1.4);
-    }
+}
