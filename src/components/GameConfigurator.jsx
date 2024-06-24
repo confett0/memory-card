@@ -4,10 +4,10 @@ export default function GameConfigurator({ house, chooseHouse, startGame }) {
       {!house ? (
         <div className="house-wrap">
           <h3>Pick your Hogwards house</h3>
-          <button onClick={() => chooseHouse("gryffindor")}>Gryffindor</button>
-          <button onClick={() => chooseHouse("slytherin")}>Slytherin</button>
-          <button onClick={() => chooseHouse("ravenclaw")}>Ravenclaw</button>
-          <button onClick={() => chooseHouse("hufflepuff")}>Hufflepuff</button>
+          <button onClick={() => chooseHouse("gryffindor")}><img src="./gryffindor-button.png"/></button>
+          <button onClick={() => chooseHouse("slytherin")}><img src="./slytherin-button.png"/></button>
+          <button onClick={() => chooseHouse("ravenclaw")}><img src="./ravenclaw-button.png"/></button>
+          <button onClick={() => chooseHouse("hufflepuff")}><img src="./hufflepuff-button.png"/></button>
         </div>
       ) : (
         <div className="level-wrap">

@@ -8,3 +8,24 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    -moz-transition: all 2s;
+-webkit-transition: all 2s;
+transition: all 2s;
+}
+
+button img {
+    width: 7rem;
+}
+
+button img:hover {
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    }
