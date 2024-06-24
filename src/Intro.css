@@ -12,20 +12,50 @@
 button {
     background: none;
     border: none;
+    color: #fff;
     cursor: pointer;
+    font-family: 'Kaisei Decol', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-button img {
+.house-button {
     width: 7rem;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
-button img:hover {
+.house-button:hover {
     -webkit-transform: scale(1.4);
     -moz-transform: scale(1.4);
     -o-transform: scale(1.4);
     -ms-transform: scale(1.4);
     transform: scale(1.4);
+}
+
+.level-button-container {
+    background: rgba(217, 217, 217, 0.2);
+    border: 1px solid #fff;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20rem;
+    height: 2.8rem;
+    margin-top: 1rem;
+}
+
+.level-button {
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.level-button:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
