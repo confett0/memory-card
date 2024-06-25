@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../Game.css"
+import "../Game.css";
 import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 import Modal from "./Modal.jsx";
@@ -10,7 +10,7 @@ export default function Game({ difficulty, house }) {
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const [animationTrigger, setAnimationTrigger] = useState(0); // Used as a counter to force the Card component to re-render
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
@@ -33,6 +33,7 @@ export default function Game({ difficulty, house }) {
   const endGame = () => {
     setCurrentScore(0);
     setClickedCardIds([]);
+    setIsOpen(true);
   };
 
   const handleClick = (cardId) => {
@@ -42,14 +43,12 @@ export default function Game({ difficulty, house }) {
       const newScore = currentScore + 1;
       setCurrentScore(newScore);
       setBestScore((prevBestScore) => Math.max(prevBestScore, newScore));
-      if (newScore === totalCards.length) {
-        // check for a win
+      if (newScore === totalCards.length) { // check for a win
         endGame();
-        alert("You win");
+        
       }
     } else {
       endGame();
-      alert("You lost");
     }
   };
 
@@ -67,7 +66,7 @@ export default function Game({ difficulty, house }) {
   return (
     <div className="game-wrap">
       <header>
-        <img className="logo" src="./logo.png"/>
+        <img className="logo" src="./logo.png" />
         <div className="score-wrap">
           <p>Your score: {currentScore}</p>
           <p>Best score: {bestScore}</p>

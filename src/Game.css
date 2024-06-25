@@ -14,6 +14,7 @@ header {
     background: url("/game-background.jpg") no-repeat center center;
     background-size: cover;
     padding: 0 3rem 2rem;
+    position: relative;
 }
 
 .game-container {
