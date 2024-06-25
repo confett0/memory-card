@@ -1,10 +1,17 @@
-import "../Modal.css"
+import "../Modal.css";
 
-export default function Modal({title}) {
-    return (
+export default function Modal({ setIsOpen }) {
+  return (
+    <>
+      <div className="darkBG" onClick={() => setIsOpen(false)} />
+      <div className="centered">
         <div className="modal">
-            <h3>{title}</h3>
-            <button>Play again?</button>
+          <div className="modalHeader">
+            <h5 className="heading">Dialog</h5>
+          </div>
+          <button onClick={() => setIsOpen(false)}>Play again?</button>
         </div>
-    )
+      </div>
+    </>
+  );
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../Game.css"
 import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
+import Modal from "./Modal.jsx";
 
 export default function Game({ difficulty, house }) {
   const [charactersData, setCharactersData] = useState([]);
@@ -9,6 +10,7 @@ export default function Game({ difficulty, house }) {
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const [animationTrigger, setAnimationTrigger] = useState(0); // Used as a counter to force the Card component to re-render
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
@@ -72,6 +74,7 @@ export default function Game({ difficulty, house }) {
         </div>
       </header>
       <div className="game-container">{cardElements}</div>
+      {isOpen && <Modal setIsOpen={setIsOpen} />}
     </div>
   );
 }

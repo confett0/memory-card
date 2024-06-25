@@ -9,7 +9,7 @@
     justify-content: space-evenly;
 }
 
-button {
+.house-button, .level-button {
     background: none;
     border: none;
     color: #fff;
