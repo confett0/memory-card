@@ -19,14 +19,14 @@
     font-weight: bold;
 }
 
-.house-button {
+.house-button-image {
     width: 7rem;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
-.house-button:hover {
+.house-button-image:hover {
     -webkit-transform: scale(1.4);
     -moz-transform: scale(1.4);
     -o-transform: scale(1.4);
