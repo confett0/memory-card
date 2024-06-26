@@ -4,7 +4,7 @@ import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 import Modal from "./Modal.jsx";
 
-export default function Game({ difficulty, house, setIsGameOn }) {
+export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
   const [charactersData, setCharactersData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
@@ -36,6 +36,11 @@ export default function Game({ difficulty, house, setIsGameOn }) {
     setClickedCardIds([]);
     setIsModalOpen(true);
   };
+
+  const quitGame = () => {
+    setIsGameOn(false)
+    setHouse(null)
+  }
 
   const handleClick = (cardId) => {
     setAnimationTrigger((count) => count + 1);
@@ -69,7 +74,7 @@ export default function Game({ difficulty, house, setIsGameOn }) {
   return (
     <div className="game-wrap">
       <header>
-        <img className="logo" src="./logo.png" />
+        <img className="logo" src="./logo.png" onClick={quitGame} />
         <div className="score-wrap">
           <p>Your score: {currentScore}</p>
           <p>Best score: {bestScore}</p>
@@ -81,7 +86,7 @@ export default function Game({ difficulty, house, setIsGameOn }) {
         <Modal
           setIsOpen={setIsModalOpen}
           gameResult={gameResult}
-          setIsGameOn={setIsGameOn}
+          quitGame={quitGame}
           house={house}
         />
       )}

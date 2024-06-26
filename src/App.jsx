@@ -11,15 +11,19 @@ function App() {
   const startGame = (level) => {
     setDifficulty(level);
     setIsGameOn(true);
-  }
-  const chooseHouse = (house) => setHouse(house);
+  };
 
   return (
     <>
       {isGameOn ? (
-        <Game difficulty={difficulty} house={house} setIsGameOn={setIsGameOn} />
+        <Game
+          difficulty={difficulty}
+          house={house}
+          setHouse={setHouse}
+          setIsGameOn={setIsGameOn}
+        />
       ) : (
-        <Intro startGame={startGame} chooseHouse={chooseHouse} house={house} />
+        <Intro startGame={startGame} setHouse={setHouse} house={house} />
       )}
     </>
   );

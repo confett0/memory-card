@@ -1,19 +1,19 @@
-export default function GameConfigurator({ house, chooseHouse, startGame }) {
+export default function GameConfigurator({ house, setHouse, startGame }) {
   return (
     <>
       {!house ? (
         <div className="house-wrap">
           <h3>Select your Hogwarts house</h3>
-          <button className="house-button" onClick={() => chooseHouse("Gryffindor")}>
+          <button className="house-button" onClick={() => setHouse("Gryffindor")}>
             <img className="house-button-image" src="./gryffindor-button.png" />
           </button>
-          <button className="house-button" onClick={() => chooseHouse("Slytherin")}>
+          <button className="house-button" onClick={() => setHouse("Slytherin")}>
             <img className="house-button-image" src="./slytherin-button.png" />
           </button>
-          <button className="house-button" onClick={() => chooseHouse("Ravenclaw")}>
+          <button className="house-button" onClick={() => setHouse("Ravenclaw")}>
             <img className="house-button-image" src="./ravenclaw-button.png" />
           </button>
-          <button className="house-button" onClick={() => chooseHouse("Hufflepuff")}>
+          <button className="house-button" onClick={() => setHouse("Hufflepuff")}>
             <img className="house-button-image" src="./hufflepuff-button.png" />
           </button>
         </div>
