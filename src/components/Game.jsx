@@ -4,7 +4,7 @@ import shuffleArray from "./shuffleArray";
 import Card from "./Card.jsx";
 import Modal from "./Modal.jsx";
 
-export default function Game({ difficulty, house }) {
+export default function Game({ difficulty, house, setIsGameOn }) {
   const [charactersData, setCharactersData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
@@ -77,7 +77,7 @@ export default function Game({ difficulty, house }) {
       </header>
       <div className="game-container">{cardElements}</div>
       {isModalOpen && (
-        <Modal setIsOpen={setIsModalOpen} gameResult={gameResult} />
+        <Modal setIsOpen={setIsModalOpen} gameResult={gameResult} setIsGameOn={setIsGameOn} />
       )}
     </div>
   );

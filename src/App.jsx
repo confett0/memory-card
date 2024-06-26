@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       {isGameOn ? (
-        <Game difficulty={difficulty} house={house} />
+        <Game difficulty={difficulty} house={house} setIsGameOn={setIsGameOn} />
       ) : (
         <Intro startGame={startGame} chooseHouse={chooseHouse} house={house} />
       )}
