@@ -9,6 +9,10 @@
     justify-content: space-evenly;
 }
 
+.intro-logo {
+    max-width: 90vw;
+}
+
 .house-button, .level-button {
     background: none;
     border: none;
@@ -41,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 20rem;
+    width: min(20rem, 90vw);
     height: 2.8rem;
     margin-top: 1rem;
 }

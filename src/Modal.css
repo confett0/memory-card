@@ -20,7 +20,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 5rem 3rem;
-    width: 30rem;
+    width: min(30rem, 90vw);
     height: 20rem;
   }
 
@@ -30,8 +30,8 @@
     cursor: pointer;
     font-family: 'Kaisei Decol', serif;
     font-weight: bold;
-    padding: 0.5rem;
-    width: 10rem;
+    padding: 0.5rem 0;
+    width: 9rem;
   }
 
   .modal-button:last-of-type {
