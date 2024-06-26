@@ -11,14 +11,33 @@
   }
   
   .modal {
-    width: 25rem;
-    height: 20rem;
     color: white;
     z-index: 10;
-    border-radius: 16px;
+    border-radius: 1rem;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 5rem 3rem;
+    width: 30rem;
+    height: 20rem;
+  }
+
+  .modal-button {
+    border: 1px solid #353535;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    font-family: 'Kaisei Decol', serif;
+    font-weight: bold;
+    padding: 0.5rem;
+    width: 10rem;
+  }
+
+  .modal-button:last-of-type {
+    margin-left: 1rem;
+  }
+
+  .modal h4 {
+    margin: 1rem 0 5rem;
   }

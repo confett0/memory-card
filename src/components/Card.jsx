@@ -4,16 +4,16 @@ export default function Card({ imgUrl, index, handleClick, house }) {
   let cardBackground;
 
   switch (house) {
-    case "gryffindor":
+    case "Gryffindor":
       cardBackground = "./gryffindor.png";
       break;
-    case "hufflepuff":
+    case "Hufflepuff":
       cardBackground = "./hufflepuff.png";
       break;
-    case "ravenclaw":
+    case "Ravenclaw":
       cardBackground = "./ravenclaw.png";
       break;
-    case "slytherin":
+    case "Slytherin":
       cardBackground = "./slytherin.png";
       break;
   }

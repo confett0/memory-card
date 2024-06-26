@@ -77,7 +77,12 @@ export default function Game({ difficulty, house, setIsGameOn }) {
       </header>
       <div className="game-container">{cardElements}</div>
       {isModalOpen && (
-        <Modal setIsOpen={setIsModalOpen} gameResult={gameResult} setIsGameOn={setIsGameOn} />
+        <Modal
+          setIsOpen={setIsModalOpen}
+          gameResult={gameResult}
+          setIsGameOn={setIsGameOn}
+          house={house}
+        />
       )}
     </div>
   );
