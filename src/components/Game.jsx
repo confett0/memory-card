@@ -10,7 +10,8 @@ export default function Game({ difficulty, house }) {
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const [animationTrigger, setAnimationTrigger] = useState(0); // Used as a counter to force the Card component to re-render
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [gameResult, setGameResult] = useState(null);
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
@@ -33,21 +34,23 @@ export default function Game({ difficulty, house }) {
   const endGame = () => {
     setCurrentScore(0);
     setClickedCardIds([]);
-    setIsOpen(true);
+    setIsModalOpen(true);
   };
 
   const handleClick = (cardId) => {
+    setAnimationTrigger((count) => count + 1);
     if (!clickedCardIds.includes(cardId)) {
-      setAnimationTrigger((count) => count + 1);
       setClickedCardIds((prevIds) => [...prevIds, cardId]);
       const newScore = currentScore + 1;
       setCurrentScore(newScore);
       setBestScore((prevBestScore) => Math.max(prevBestScore, newScore));
-      if (newScore === totalCards.length) { // check for a win
+      if (newScore === totalCards.length) {
+        // check for a win
+        setGameResult("win");
         endGame();
-        
       }
     } else {
+      setGameResult("loss");
       endGame();
     }
   };
@@ -73,7 +76,9 @@ export default function Game({ difficulty, house }) {
         </div>
       </header>
       <div className="game-container">{cardElements}</div>
-      {isOpen && <Modal setIsOpen={setIsOpen} />}
+      {isModalOpen && (
+        <Modal setIsOpen={setIsModalOpen} gameResult={gameResult} />
+      )}
     </div>
   );
 }
