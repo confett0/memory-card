@@ -3,7 +3,7 @@
 This project is a Harry Potter-themed memory card game built using React. The objective of the game is to click on cards to earn points without clicking the same card twice. The game features images fetched from an API, a house selection option, difficulty levels, and a scoreboard to track your progress.
 
 # Demo
-[Live Demo](Link to your live demo)
+[Live Demo](https://harry-potter-memory-card.netlify.app/)
 
 # Project Screenshots
 ![Intro page screenshot](public/screenshot-1)
