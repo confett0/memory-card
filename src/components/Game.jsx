@@ -16,7 +16,7 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
       .then((response) => response.json())
-      .then((data) => setCharactersData(data));
+      .then((data) => setCharactersData(shuffleArray(data))); // shuffle characters array to avoid getting the same characters when playing in easy and medium mode
   }, []);
 
   let totalCards = [];
@@ -38,8 +38,13 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
   };
 
   const quitGame = () => {
-    setIsGameOn(false)
-    setHouse(null)
+    setIsGameOn(false);
+    setHouse(null);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setAnimationTrigger((count) => count + 1); // trigger animation when closing modal to replay game
   }
 
   const handleClick = (cardId) => {
@@ -84,7 +89,7 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
       <div className="game-container">{cardElements}</div>
       {isModalOpen && (
         <Modal
-          setIsOpen={setIsModalOpen}
+          closeModal={closeModal}
           gameResult={gameResult}
           quitGame={quitGame}
           house={house}

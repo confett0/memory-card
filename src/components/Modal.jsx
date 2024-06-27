@@ -1,6 +1,6 @@
 import "../Modal.css";
 
-export default function Modal({ setIsOpen, gameResult, quitGame, house }) {
+export default function Modal({ closeModal, gameResult, quitGame, house }) {
   const winData = {
     title: "You win",
     subtitle: `10 points to ${house}!`,
@@ -17,7 +17,7 @@ export default function Modal({ setIsOpen, gameResult, quitGame, house }) {
 
   return (
     <>
-      <div className="darkBG" />
+      <div className="darkBG" onClick={closeModal} />
       <div
         className="modal"
         style={{
@@ -26,7 +26,7 @@ export default function Modal({ setIsOpen, gameResult, quitGame, house }) {
       >
         <h2>{data.title}</h2>
         <h4>{data.subtitle}</h4>
-        <button className="modal-button" onClick={() => setIsOpen(false)}>
+        <button className="modal-button" onClick={closeModal}>
           Play again?
         </button>
         <button className="modal-button" onClick={quitGame}>
