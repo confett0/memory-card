@@ -1,6 +1,6 @@
 import "../Card.css";
 
-export default function Card({ imgUrl, index, handleClick, house }) {
+export default function Card({ imgUrl, index, handleClick, house, name }) {
   let cardBackground;
 
   switch (house) {
@@ -22,7 +22,7 @@ export default function Card({ imgUrl, index, handleClick, house }) {
     <div className="card" onClick={() => handleClick(index)}>
       <div className="card-inner">
         <div className="card-front">
-          <img src={imgUrl} />
+          <img src={imgUrl} alt={name} title={name} />
         </div>
         <div className="card-back">
           <img src={cardBackground} />
