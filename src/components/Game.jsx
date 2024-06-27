@@ -35,9 +35,9 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
   let totalCards = []; // total playable cards for each difficulty
 
   if (difficulty === "easy") {
-    totalCards = charactersData.slice(0, 8);
+    totalCards = charactersData.slice(0, 10);
   } else if (difficulty === "medium") {
-    totalCards = charactersData.slice(0, 16);
+    totalCards = charactersData.slice(0, 15);
   } else if (difficulty === "hard") {
     totalCards = charactersData;
   }
@@ -102,7 +102,7 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
         Click on cards to earn points, but don&apos;t click the same card twice!
       </p>
       <div className="game-container">
-        {isLoading ? <p>Loading...</p> : cardElements}
+        {isLoading ? <h3>Loading...</h3> : cardElements}
       </div>
       {isModalOpen && (
         <Modal

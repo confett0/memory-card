@@ -22,7 +22,7 @@ header {
 .game-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 2.5rem;
     justify-content: center;
     padding: 2rem;
   }
