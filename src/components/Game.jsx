@@ -85,7 +85,7 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
           <p>Best score: {bestScore}</p>
         </div>
       </header>
-      <p>Click on cards to earn points, but don't click the same card twice!</p>
+      <p>Click on cards to earn points, but don&apos;t click the same card twice!</p>
       <div className="game-container">{cardElements}</div>
       {isModalOpen && (
         <Modal
