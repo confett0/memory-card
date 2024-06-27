@@ -6,8 +6,8 @@ This project is a Harry Potter-themed memory card game built using React. The ob
 [Live Demo](https://harry-potter-memory-card.netlify.app/)
 
 # Project Screenshots
-![Intro page screenshot](public/screenshot-1)
-![Game page screenshot](public/screenshot-2)
+![Intro page screenshot](public/screenshot-1.jpg)
+![Game page screenshot](public/screenshot-2.jpg)
 
 # Features
 Here are some of the best features of this project:
