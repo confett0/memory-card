@@ -6,7 +6,8 @@ This project is a Harry Potter-themed memory card game built using React. The ob
 [Live Demo](Link to your live demo)
 
 # Project Screenshots
-![Screenshot](Add your project screenshots here)
+![Intro page screenshot](public/screenshot-1)
+![Game page screenshot](public/screenshot-2)
 
 # Features
 Here are some of the best features of this project:
@@ -32,5 +33,6 @@ Technologies used in this project:
 - Styling components using CSS Modules for the first time.
 - Creating smooth CSS transitions and animations for card flipping effects.
 - Ensuring the card shuffling logic enhances the game's difficulty without causing bugs.
+- Creating winning/losing modal pop-up.
 
 
