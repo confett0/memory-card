@@ -5,6 +5,7 @@ import Card from "./Card.jsx";
 import Modal from "./Modal.jsx";
 
 export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
+  const [isLoading, setIsLoading] = useState(true);
   const [charactersData, setCharactersData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [clickedCardIds, setClickedCardIds] = useState([]);
@@ -15,11 +16,23 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
 
   useEffect(() => {
     fetch("https://potterapi-fedeperin.vercel.app/en/characters")
-      .then((response) => response.json())
-      .then((data) => setCharactersData(shuffleArray(data))); // shuffle characters array to avoid getting the same characters when playing in easy and medium mode
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCharactersData(shuffleArray(data)); // shuffles characters array to avoid getting the same characters when playing in easy and medium mode
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setIsLoading(false);
+      });
   }, []);
 
-  let totalCards = [];
+  let totalCards = []; // total playable cards for each difficulty
 
   if (difficulty === "easy") {
     totalCards = charactersData.slice(0, 8);
@@ -29,7 +42,7 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
     totalCards = charactersData;
   }
 
-  const shuffledCards = shuffleArray(totalCards);
+  const shuffledCards = shuffleArray(totalCards); // shuffles cards on every render
 
   const endGame = () => {
     setCurrentScore(0);
@@ -44,8 +57,8 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setAnimationTrigger((count) => count + 1); // trigger animation when closing modal to replay game
-  }
+    setAnimationTrigger((count) => count + 1); // triggers animation when closing modal to replay game
+  };
 
   const handleClick = (cardId) => {
     setAnimationTrigger((count) => count + 1);
@@ -85,8 +98,12 @@ export default function Game({ difficulty, house, setHouse, setIsGameOn }) {
           <p>Best score: {bestScore}</p>
         </div>
       </header>
-      <p>Click on cards to earn points, but don&apos;t click the same card twice!</p>
-      <div className="game-container">{cardElements}</div>
+      <p>
+        Click on cards to earn points, but don&apos;t click the same card twice!
+      </p>
+      <div className="game-container">
+        {isLoading ? <p>Loading...</p> : cardElements}
+      </div>
       {isModalOpen && (
         <Modal
           closeModal={closeModal}
